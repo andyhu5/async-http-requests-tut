@@ -14,7 +14,7 @@ def fetch(session, url):
 
 @timer(1, 5)
 def main():
-    with ThreadPoolExecutor(max_workers=100) as executor:
+    with ThreadPoolExecutor(max_workers=12) as executor:
         with requests.Session() as session:
             executor.map(fetch, [session] * 100, [URL] * 100)
             executor.shutdown(wait=True)
